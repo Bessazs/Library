@@ -99,6 +99,11 @@ button:hover{
     width: 100%;
 }
 
+.card-pages{
+    display: flex;
+    gap: 1rem;
+}
+
 .icon{
     height: 30px;
     cursor: pointer;
@@ -107,10 +112,13 @@ button:hover{
 }
 
 .icon:hover{
-    border: 1px solid #3654c0;
     scale: 1.1;
 
 }
+.read{
+    border: none;
+}
+
 
 .delete{
     background-color: rgb(206, 30, 30);
