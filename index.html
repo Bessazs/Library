@@ -15,27 +15,38 @@
 </head>
 <body>
     <header>
-        <button style="visibility: hidden;">Add Book</button>
         <h1>My Library</h1>
-        <button>Add Book</button>
     </header>
     <main>
+        <dialog open>
+            <form action="#" method="post">
+                <div class="form-row">
+                    <label for="title">Title:</label>
+                    <input type="text" name="title" id="title" required placeholder="O senhor dos aneis">
+                </div>
+                <div class="for-row">
+                    <label for="author">Author:</label>
+                    <input type="text" name="author" id="author" placeholder="J.R.R Tolkien">
+                </div>
+                <div class="for-row">
+                    <label for="pages">Pages:</label>
+                    <input type="number" name="pages" id="pages" min="1">
+                </div>
+                <div class="form-row">
+                    <button type="submit">Save</button>
+                    <button>Cancel</button>     
+                </div>
+                
+            </form>
+
+         </dialog>
+    
+          
         <div class="container-card">
             <div class="empty">
                 <img src="icons/plus-thick.svg" alt="Plus image" class="addBook">
             </div>
-            <div class="card">
-                <div class="card-icons">
-                    <img src="icons/book-edit.svg" alt="" class="icon edit">
-                    <img src="icons/delete.svg" alt="" class="icon delete">
-                </div>
-                <h3 class="title">Soina no pais dos gays</h3>
-                <h3 class="author"> Marcia Sensitiva</h3>
-                <div class="card-pages">
-                    <h3 class="pages">256 pages</h3>
-                    <img src="icons/progress-check.svg" alt="" class="icon read">
-                </div>
-            </div>
+            
 
         </div>
     </main>

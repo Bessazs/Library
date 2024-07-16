@@ -22,7 +22,7 @@ body{
 
 header{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     border-bottom: 1px solid #162662;
     padding: 0.9rem;
 
@@ -83,8 +83,13 @@ button:hover{
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 250ms linear;
     
 
+}
+
+.empty{
+    cursor: pointer;
 }
 
 .card{
@@ -93,6 +98,26 @@ button:hover{
     flex-direction: column;
  
 }
+
+.card:hover, .empty:hover{
+    scale: 1.1;
+}
+
+.empty:hover > .addBook{
+    scale: 1.5;
+    transform: rotate(180deg);
+}
+
+
+.addBook{
+    height: 80px;
+    animation: ani-ring 2s ease infinite;
+    transition: 500ms linear;
+    cursor:pointer;
+}
+
+
+
 .card-icons{
     display: flex;
     justify-content: space-between;
@@ -121,27 +146,17 @@ button:hover{
 
 
 .delete{
-    background-color: rgb(206, 30, 30);
+    background-color: rgba(206, 30, 30, 0.267);
    
 }
 
 .edit{
-    background-color: rgb(11, 204, 11);
+    background-color: rgba(11, 204, 11, 0.301);
    
 
 }
 
-.addBook{
-    height: 80px;
-    animation: ani-ring 2s ease infinite;
-    transition: 500ms linear;
-    cursor:pointer;
-}
 
 
-.addBook:hover{
-    scale: 1.5;
-    transform: rotate(180deg);
-    
-}
 
+  
