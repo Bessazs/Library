@@ -37,21 +37,21 @@ function addCard() {
   
     let iconDelete = document.createElement('img');
     iconDelete.classList.add('icon', 'delete');
-    iconDelete.src =  'icons/delete.svg';
+    iconDelete.src =  'icons/lixo.png';
     iconDelete.setAttribute('onClick', "clic("+ids+")")
   
-    let title = document.createElement('h3');
+    let title = document.createElement('p');
     title.classList.add('title');
     title.textContent = livro.title;
   
-    let author = document.createElement('h3');
+    let author = document.createElement('p');
     author.classList.add('author');
     author.textContent = livro.author;
   
     let cardPages = document.createElement('div');
     cardPages.classList.add('card-pages');
   
-    let pages = document.createElement('h3');
+    let pages = document.createElement('p');
     pages.classList.add('pages');
     pages.textContent = `${livro.pages} Pages`;
   
@@ -61,11 +61,11 @@ function addCard() {
     iconPages.setAttribute('onclick', `swich(${ids})`);
   
     if (livro.read == 'read') {
-      iconPages.src = 'icons/progress-check.svg';
+      iconPages.src = 'icons/carraca.png';
     }else if(livro.read == 'reading'){
-      iconPages.src = 'icons/progress-close.svg';
+      iconPages.src = 'icons/excluir.png';
     }else{
-      iconPages.src = 'icons/basket-plus.svg';
+      iconPages.src = 'icons/cesta-de-compras (1).png';
     }
       
     cardPages.appendChild(pages);
@@ -89,12 +89,12 @@ function addCard() {
 
 function swich(id){
   icone = document.querySelector('.swich'+id).src;
-  if (icone =='http://127.0.0.1:5500/icons/basket-plus.svg') {
-    document.querySelector('.swich'+id).src = 'icons/progress-check.svg';
-  } else if (icone =='http://127.0.0.1:5500/icons/progress-close.svg') {
-    document.querySelector('.swich'+id).src = 'icons/basket-plus.svg'
+  if (icone.indexOf("cesta-de-compras")!=-1) {
+    document.querySelector('.swich'+id).src = 'icons/carraca.png';
+  } else if (icone.indexOf("excluir")!=-1) {
+    document.querySelector('.swich'+id).src = 'icons/cesta-de-compras (1).png'
   }else{
-    document.querySelector('.swich'+id).src = 'icons/progress-close.svg'
+    document.querySelector('.swich'+id).src = 'icons/excluir.png'
   }
   
 }
@@ -138,11 +138,8 @@ btnSave.addEventListener('click', (Event) =>{
 
 btnCancel.addEventListener('click',() => {
   dialog.close();
+  cleanInputs();
 })
-
-
-
-// Código referente ao edit e delete
 
 
 
