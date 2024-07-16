@@ -1,7 +1,7 @@
 const myLibrary = [];
 
 
-function Book(title, author, pages, read = false){
+function Book(title, author, pages, read){
   this.title = title;
   this.author = author;
   this.pages = pages;
@@ -9,12 +9,12 @@ function Book(title, author, pages, read = false){
 
 }
 
-function addBookToLibrary() {
-  const book1 = new Book("Carolina", "Seu Jorge", 150);
-  const book2 = new Book("Sou 157", "Mano brown", 200);  
-  myLibrary.push(book1,book2);
+function addBookToLibrary(title, author, pages, read) {
+  const book = new Book(title, author, pages, read);
+  myLibrary.push(book);
+  addCard();
+  myLibrary.pop();
 }
-
 
 
 // Adiciona card do array myLibrary
@@ -55,10 +55,12 @@ function addCard() {
     let iconPages = document.createElement('img')
     iconPages.classList.add('icon' , 'read');
   
-    if (livro.read == true) {
+    if (livro.read == 'read') {
       iconPages.src = 'icons/progress-check.svg';
-    }else{
+    }else if(livro.read == 'reading'){
       iconPages.src = 'icons/progress-close.svg';
+    }else{
+      iconPages.src = 'icons/basket-plus.svg';
     }
       
     cardPages.appendChild(pages);
@@ -79,22 +81,42 @@ function addCard() {
 }
 
 
-addBookToLibrary();
-addCard();
+// Código relativo ao dialog.
 
-const dialog = document.querySelector("dialog");
-const showButton = document.querySelector(".coco");
-const closeButton = document.querySelector("dialog button");
+const btnAdd = document.querySelector('.empty');
+const dialog = document.querySelector('dialog');
+const btnSave = document.querySelector('.save');
+const btnCancel = document.querySelector('.cancel');
+const title = document.querySelector('#title');
+const author = document.querySelector('#author');
+const pages = document.querySelector('#pages');
+const read = document.querySelector('#read');
 
-// "Show the dialog" button opens the dialog modally
-showButton.addEventListener("click", () => {
-  dialog.showModal();
+
+ btnAdd.addEventListener('click',() =>{
+   dialog.showModal();
 });
 
-// "Close" button closes the dialog
-closeButton.addEventListener("click", () => {
+btnSave.addEventListener('click', (Event) =>{ 
+  if (title.value && pages.value !== "default" && !isNaN(parseInt(pages.value)) && parseInt(pages.value)>0){
+    addBookToLibrary(title.value, author.value, pages.value, read.value); 
+    Event.preventDefault();
+    dialog.close();
+
+
+
+  }
+})
+
+btnCancel.addEventListener('click',() => {
   dialog.close();
-});
+})
+
+
+
+// Código referente ao edit e delete
+
+
 
 
 
