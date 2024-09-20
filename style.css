@@ -5,9 +5,7 @@
     font-style: normal;
   }
 
-  #dd9a66
-
-  #162662
+  
   .space-mono-regular {
     font-family: "Space Mono", monospace;
     font-weight: 400;
@@ -230,4 +228,7 @@ input, select{
 
 
 
-  
+  .gif {
+    height: 500px;
+    width: 500px;
+  }
